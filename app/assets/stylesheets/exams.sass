@@ -1,0 +1,50 @@
+// Стили для страницы "Экзамены" (exam)
+
+.exam-block
+  padding-bottom: 2rem
+  
+  .current-exam-block
+    margin-bottom: 1.5rem
+
+    &:last-child
+      margin-bottom: $medium-margin
+
+    .row
+      position: relative
+
+      @media (max-width: 586px)
+        flex-wrap: wrap
+    
+    &:not(:last-child)
+
+      @media (max-width: 586px)
+        .row::after
+          @include line-style
+          width: 100%
+          height: 1px
+          bottom: -0.5rem
+
+  .exam-form
+
+    @media (max-width: 420px)
+
+      .row
+        flex-wrap: wrap
+
+        .btn-block
+          margin-top: 1.5rem
+  
+  .btn-block
+    align-self: flex-end
+
+  .exam-form,
+  .btn__margin
+    margin-bottom: 1.5rem
+
+  .sub-row
+    @include flex-row
+
+    @media (max-width: 586px)
+      margin-top: 1.5rem
+      margin-bottom: 1.5rem
+

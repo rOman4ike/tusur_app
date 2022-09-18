@@ -1,0 +1,49 @@
+// Стили для страницы "Направления" (specialty)
+  
+.specialty-block
+  padding-bottom: 2rem
+
+  .filter-block
+    margin-bottom: $medium-margin
+
+  .specialties-list
+    @include flex-row
+
+    .specialties-list-left,
+    .specialties-list-right
+      width: 50%
+
+      @media (max-width: 750px)
+        width: 100%
+    
+    .specialty-list-item
+      @include border-style
+      @include flex-row
+      justify-content: space-between
+      width: 90%
+      margin-bottom: $medium-margin
+      padding: 1rem
+
+      .specialty-name-block
+        @include flex-column
+        width: 60%
+
+        .specialty-name
+          margin-bottom: 1rem
+
+      .btn-block__center
+        align-self: center
+
+      &.pay
+        background-color: $attention-color
+      
+      &.budget
+        background-color: $success-color
+
+      @media (max-width: 750px)
+        width: 100%
+      
+    @media (max-width: 750px)
+      flex-direction: column
+      width: 100%
+      box-shadow: none

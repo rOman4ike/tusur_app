@@ -1,0 +1,7 @@
+<div id="flashBlock">
+  <% flash.each do |key, message| %>
+    <% if key != "danger" %>
+      <%= content_tag(:div, message, class: "alert alert-#{key}") %>
+    <% end %>
+  <% end %>
+</div>

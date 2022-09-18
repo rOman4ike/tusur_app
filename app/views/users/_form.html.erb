@@ -1,0 +1,40 @@
+<div class="user-form-block">
+  <%= simple_form_for @user, defaults: { error: false }, html: { name: "userForm" } do |f| %>
+    <div class="sub-input-block">
+      <h2>Основные данные</h2>
+      <div class="row row__column">
+        <%= f.input :lastname, label: "Фамилия" %>
+        <%= f.input :firstname, label: "Имя" %>
+        <%= f.input :patronymic, label: "Отчество" %>
+        <%= f.input :gender, collection: ["Мужской", "Женский"], label: "Пол" %>
+      </div>
+      
+      <div class="row row__column">
+        <%= f.input :email, label: "E-mail" %>
+        <%= f.input :phone, as: :tel, label: "Номер телефона" %>
+        <%= f.input :birthday, as: :date, start_year: 1950, end_year: Date.today.year - 17, label: "День рождения" %>
+      </div>
+    </div>
+
+    <div class="sub-input-block">
+      <h2>Место жительства</h2>
+      <%= f.simple_fields_for :user_residence do |ff| %>
+        <div class="row row__column">
+          <%= ff.input :country, :as => :string, label: "Страна" %>
+          <%= ff.input :region, label: "Область" %>
+          <%= ff.input :city, label: "Город" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="sub-input-block">
+      <h2>Фото</h2>
+      <%= f.simple_fields_for :user_photo do |ff| %>
+        <%= ff.input :avatar, :as => :file, label: "Прикрепите фото для студенческого билета в электронном виде" %>
+      <% end %>
+    </div>
+
+    <%= f.input :agreement, as: :boolean, label: "Даю согласие на обработку персональных данных"%>
+    <%= f.submit "Сохранить", class: "btn submit-btn" %>
+  <% end %>
+</div>

@@ -1,0 +1,20 @@
+<% if @exams.length != 0 %>
+  <table border="1">
+    <thead>
+      <th>Предмет</th>
+      <th>Балл</th>
+    </thead>
+    <tbody>
+      <% @exams.each do |f| %>
+        <tr>
+          <td class="exam-subject">
+            <%= f.subject %>
+          </td>
+          <td class="exam-points">
+            <%= f.points %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

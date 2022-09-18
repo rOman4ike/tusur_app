@@ -1,0 +1,34 @@
+<ul class="specialty-list" ng-init="userExams=<%= Exam.all.select{ |num| num.user_id == @user_id }.to_json %> ">
+  <li class="specialty-list-item" 
+      ng-class="spec.budget ? 'budget' : 'pay'" 
+      ng-repeat="spec in availableSpec | filter : filterItems">
+
+    <div class="specialty-name-block">
+      <span class="specialty-name">{{ spec.specialty }}</span>
+      <div>
+        <abbr class="filter-name exams" ng-attr-title="{{ examAbbr(spec) }}">Экзамены</abbr>
+      </div>
+    </div>
+
+    <div class="btn-block btn-block__center">
+      <button class="btn secondary-btn" 
+              ng-class="disabledButton(spec.id, userExams) ? 'disabled-btn' : 'available' " 
+              ng-click="addItemToList(spec, spec.id)" 
+              ng-disabled="disabledButton(spec.id, userExams)">Добавить</button>
+    </div>
+    
+  </li>
+</ul>
+
+
+<%# 
+  Exam (specialty_id)
+
+  SpecialtiesObject (specialty_id)
+%>
+
+<%# <ul class="subject-list">
+  <li ng-repeat="object in availableSpecSubjects" ng-if="spec.id === object.specialty_id">
+    {{ object.object }}: {{ object.points }}
+  </li>
+</ul> %>

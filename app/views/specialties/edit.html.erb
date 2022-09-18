@@ -1,0 +1,26 @@
+<%= provide(:title, "Направления") %>
+
+<div class="specialty-block" ng-app="specialtiesApp">
+  <div class="content" ng-controller="specialtyCtrl">
+
+    <h1>Направления</h1>
+    <div class="filter-block">
+      <input type="checkbox" ng-model="budget" id="filter_specialty_budget"> <label class="filter-name budget" for="filter_specialty_budget">Бюджет</label>
+      <input type="checkbox" ng-model="paid" id="filter_specialty_paid"> <label class="filter-name pay" for="filter_specialty_paid">Платно</label>
+    </div>
+
+    <div class="specialties-list">
+      <div class="specialties-list-left">
+        <h2>Список направлений</h2>
+        <%= render 'specialties/available_specialties' %>
+      </div>
+      
+      <div class="specialties-list-right">
+        <h2>Выбранные направления</h2>
+        <%= render 'specialties/selected_specialties' %>
+        <button class="btn submit-btn" ng-click="sendJson()">Отправить</button>
+      </div>
+    </div>
+
+  </div>
+</div>

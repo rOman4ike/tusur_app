@@ -1,0 +1,98 @@
+// Стили для шапки (header)
+  
+.header
+  margin-bottom: $medium-margin
+  z-index: 10
+
+  .header-inner
+    @include flex-row
+    justify-content: flex-start
+    position: relative
+    padding: $small-margin 0
+
+    &::after
+      @include line-style
+      width: 100%
+      height: 1px
+      bottom: 0
+
+    .logo
+      position: relative
+      margin-right: $big-margin
+
+      &::after
+        @include line-style
+        width: 1px
+        height: calc(100% + 1rem)
+        bottom: -8px
+        right: calc(#{$medium-margin} * (-1))
+
+        @media (max-width: 725px)
+          display: none
+
+      @media (max-width: 725px)
+        margin-right: 0
+
+    .navbar
+      @include flex-row
+      align-items: center
+      height: 100%
+
+      li
+        font-weight: 700
+        text-align: center
+
+        &:not(:last-child)
+          margin-right: $big-margin
+
+        a
+          position: relative
+          transition: all 0.3s
+          color: #000
+
+          &.active
+            color: $tusur-active-color
+
+          &:hover
+            color: $tusur-active-color
+
+      @media (max-width: 725px)
+        display: none
+
+    .burger
+      display: none
+      align-self: center
+
+      @media (max-width: 725px)
+        display: block
+
+    .dropdown-block
+      display: none
+
+      &.show
+        position: absolute
+        display: inline-block
+        right: 0
+        bottom: -10rem
+        z-index: 1
+
+      .dropdown-menu
+        @include border-style
+        background-color: white
+        min-width: 160px
+
+        li
+          font-weight: 700
+          text-align: center
+          padding: 0.75rem 1rem
+          text-decoration: none
+
+          a
+            position: relative
+            transition: all 0.3s
+            color: #000
+
+    @media (max-width: 725px)
+      justify-content: space-between
+
+    

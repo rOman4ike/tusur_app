@@ -1,0 +1,12 @@
+<li>
+  <%= link_to "Личные данные", root_path%>
+</li>
+<li>
+  <%= link_to "Вступительные испытания", edit_exam_path(1) %>
+</li>
+<li>
+  <%= link_to "Направления", edit_specialty_path(1) %>
+</li>
+<li>
+  <%= link_to "Печать", statements_show_path(format: :pdf) %>
+</li>

@@ -1,0 +1,16 @@
+<div id="dynamic-inputs">
+  <div class="exam-form-block" data-item_id="1000">
+    <%= simple_form_for @exam, html: { class: "exam-form" }, remote: true do |f| %>
+      <div class="row">
+        <%= f.input :subject, collection: @collectionSubjects, label: "Предмет" %>
+        <%= f.input :points, input_html: { min: '0', max: '100' }, label: "Балл" %>
+        <div class="btn-block">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<button id="addMore" class="btn secondary-btn btn__margin">Добавить ЕГЭ</button>
+<br>
+<button id="submitForm" class="btn submit-btn">Сохранить</button>

@@ -1,0 +1,21 @@
+// Стили для уведомлений
+
+.alert
+  @include border-style
+  padding: 1rem
+  margin-bottom: $medium-margin
+  cursor: pointer
+
+  &-danger
+    background-color: $attention-color
+    color: $attention-text-color
+  
+  &-success
+    background-color: $success-color
+    color: $success-text-color
+
+  strong
+    font-weight: 700
+
+  ul
+    margin-left: 1rem

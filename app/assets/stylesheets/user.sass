@@ -1,0 +1,33 @@
+// Стили для страницы "Личные данные" (user)
+  
+.user-block
+  padding-bottom: 2rem
+  
+  .sub-input-block
+    margin-bottom: $medium-margin
+
+    .birthday-block
+      @include flex-row
+
+      select:not(:last-child)
+        margin-right: 1.5rem
+
+  .boolean
+    margin-bottom: $small-margin
+    
+  @media (max-width: 825px)
+
+    .row__column
+      flex-direction: column
+
+      div
+        margin-right: 0
+
+        &:not(:last-child)
+          margin-bottom: 1.5rem
+
+        input,
+        select
+          max-width: 100%
+          box-shadow: none
+      

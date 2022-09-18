@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Заявление</title>
+    <meta charset='utf-8' />
+    <%= wicked_pdf_stylesheet_link_tag "statements" %>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  </head>
+<body>
+
+<div class="document-block">
+  <div class="header">
+    <small>
+      <strong class="text-center">
+        Ректору федерального государственного бюджетного образовательного учреждения высшего образования<br>
+        «Томский государственный университет систем управления и радиоэлектроники»
+      </strong>
+    </small>
+  </div>
+
+  <h3 class="title">Заявление</h3>
+
+  <p>
+    Я, <span class="underline"><%= fullName %></span>
+    Дата рождения: <span class="underline"><%= User.find_by(id:1).birthday %></span>, Пол: <span class="underline"><%= User.find_by(id:1).gender %></span>,
+  </p>
+
+  <p>
+    Место жительства: государство <span class="underline"><%= UserResidence.find_by(user_id:1).country %></span>, область/край <span class="underline"><%= UserResidence.find_by(user_id:1).region %></span>,
+    город / населенный пункт <span class="underline"><%= UserResidence.find_by(user_id:1).city %></span>
+  </p>
+
+  <p>
+    <strong>
+      Прошу допустить меня к конкурсу для поступления на первый курс по направлениям подготовки
+      (специальностям) на формы и условия обучения, указанные в Приложении 1 к заявлению:
+    </strong>
+  </p>
+
+  <p>Прошу засчитать в качестве результатов вступительных испытаний результаты ЕГЭ по следующим предметам:</p>
+  <%= render "statements/exams_table" %>
+
+  <p>Выбранные направления:</p>
+  <%= render "statements/selected_specialties_table" %>
+
+  <p>Дата: <%= fullDate %></p>
+  <p>Подпись: ___________</p>
+</div>
+</body>
+</html>

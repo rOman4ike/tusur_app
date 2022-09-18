@@ -1,0 +1,14 @@
+<%= provide(:title, "Экзамены") %>
+
+<div class="exam-block">
+  <div id="flashBlock">
+  </div>
+
+  <h1>Вступительные испытания</h1>
+
+  <h2>Текущие испытания</h2>
+  <%= render 'exams/current_exam' %>
+
+  <h2>Добавить испытание</h2>
+  <%= render 'exams/add_exam' %>
+</div>

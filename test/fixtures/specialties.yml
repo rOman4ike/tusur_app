@@ -1,0 +1,16 @@
+# == Schema Information
+#
+# Table name: specialties
+#
+#  id         :integer          not null, primary key
+#  budget     :boolean
+#  specialty  :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  specialty: MyString
+
+two:
+  specialty: MyString

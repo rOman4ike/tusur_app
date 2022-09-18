@@ -1,0 +1,26 @@
+<% if @selectedSpecialty.length != 0 %>
+  <table border="1">
+    <thead>
+      <th>Направление</th>
+      <th>Предмет/Баллы</th>
+    </thead>
+    <tbody>
+      <% @selectedSpecialty.each do |f| %>
+        <tr>
+          <td class="specialty-name">
+            <%= Specialty.find_by(id: f.specialty_id).specialty %>
+          </td>
+          <td class="specialty-exams">
+            <% @specialtySubject.each do |subject| %>
+              <% if f.specialty_id == subject.specialty_id %>
+                <%= subject.subject %>:
+                <%= subject.points %>
+                <br>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
